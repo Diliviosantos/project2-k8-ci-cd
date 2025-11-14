@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: result-deployment
+  namespace: dilivio
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: result-deployment
+  template:
+    metadata:
+      labels:
+        app: result-deployment
+    spec:
+      containers:
+      - name: result-container
+        image: diliviosantos/result-k8:latest
+        ports:
+        - containerPort: 4000
+        env:
+          - name: PG_HOST
+            value: "postgres-service"
+          - name: PG_USER
+            value: "postgres"
+          - name: PG_PASSWORD
+            value: "postgres"
+          - name: PG_DATABASE
+            value: "postgres"
+          - name: PG_PORT
+            value: "5432"
+        resources:          
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "200m"
