@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: vote-container
-        image: diliviosantos/k8-vote:1.0
+        image: diliviosantos/k8-vote:latest
         ports:
         - containerPort: 80
         env:

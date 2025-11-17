@@ -17,7 +17,7 @@ spec:
       - name: result-container
         image: diliviosantos/result-k8:latest
         ports:
-        - containerPort: 4000
+        - containerPort: 80
         env:
           - name: PG_HOST
             value: "postgres-service"

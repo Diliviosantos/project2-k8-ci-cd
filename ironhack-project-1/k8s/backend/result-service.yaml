@@ -9,5 +9,5 @@ spec:
     app: result-deployment
   ports:
     - protocol: TCP
-      port: 80         
-      targetPort: 4000 
+      port: 80
+      targetPort: 80
